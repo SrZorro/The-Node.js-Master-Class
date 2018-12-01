@@ -96,13 +96,13 @@ function routeHandler(req, res) {
                     // Call the corresponding route with specific request method
                     return route[req.method.toLowerCase()](data, afterRoute);
                 } else {
-                    // If route found, but no method to handle it
+                    // If route found, but no method to handle it, 501
                     return routes["501"]["all"](data, afterRoute);
                 }
             }
         }
 
-        // If no route found, call 404
+        // If no route found, 404
         routes["404"]["all"](data, afterRoute);
     });
 }
